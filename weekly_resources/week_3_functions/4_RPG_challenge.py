@@ -7,6 +7,7 @@
 #   1. At least ONE input from the user (example: choose your name, choose an action)
 #   2. At least ONE if/else statement (example: check if you or the monster is alive)
 #   3. At least ONE function (example: attack, heal, or roll a dice)
+#   4. Use the python standard main function (the if __name__="__main__": thing from earlier)
 #
 # RPG games let the player make choices and see the result.
 # Focus on making a few simple options, not a huge game.
