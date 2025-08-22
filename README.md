@@ -36,7 +36,7 @@ c. Select "Create codespace on main"
 
 ### 3. Explore Our Activities
 
-a. In the file browser (left side), expand the coding_activities/ folder
+a. In the file browser (left side), expand the weekly_resources folder
 
 b. Open the folder for this week
 
