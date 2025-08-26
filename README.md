@@ -80,3 +80,17 @@ Just press the period key on your device (this -> . )
 1. Go to the file you want to run
 
 2. In the top right, press the play button, this will open a terminal for the program and run it
+
+# Other Resources for you to Explore
+
+Python Tutorials:
+
+https://www.learnpython.org/#google_vignette
+
+Free Computer Science Courses:
+
+https://github.com/getvmio/free-computer-science-resources
+
+Coding Practice:
+
+https://code.org/en-US/students/middle-and-high-school
