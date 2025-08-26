@@ -83,7 +83,7 @@ Just press the period key on your device (this -> . )
 
 # Other Resources for you to Explore
 
-Python Tutorials:
+Python Tutorials: (or learn any language you want)
 
 https://www.learnpython.org/#google_vignette
 
@@ -94,3 +94,4 @@ https://github.com/getvmio/free-computer-science-resources
 Coding Practice:
 
 https://code.org/en-US/students/middle-and-high-school
+
