@@ -166,5 +166,3 @@ def play_day():
 if __name__ == "__main__":
     random.seed()
     play_day()
-
->>>>>>> f154ea37221f0a8609f89a0ee82f1e53c3a0ea94

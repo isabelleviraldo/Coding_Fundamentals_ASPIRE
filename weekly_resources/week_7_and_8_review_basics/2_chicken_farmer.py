@@ -100,6 +100,7 @@ def main():
         "coins":     20,
         "chickens":  1,
         "feed":      0,
+        
         "fed":       0,
         "eggs":      0,
     }
