@@ -1,86 +1,96 @@
-"""
-Workshop 2: Simulating Cache Behavior
--------------------------------------
-Goal:
-  Understand how a CPU cache works internally — specifically,
-  what a 'cache hit' and 'cache miss' mean.
 
-Concepts:
-  - A cache stores a small set of recently accessed memory addresses.
-  - If the requested address is already in the cache → HIT.
-  - If it’s not in the cache → MISS, and the data must be fetched (slow).
-  - This simple model is a *direct-mapped* cache.
-"""
+#2 wide
+EYE_OPTIONS = [
+    "/\\",    # triangle eye
+    "()",     # round eye
+    "[]",     # square eye
+    "--"      # closed eye
+]
 
-# -------------------------------
-# STEP 1: Define the cache simulator function
-# -------------------------------
-def simulate_cache(memory_accesses, cache_size):
-    """
-    Simulates a simple *direct-mapped cache*.
+#7 wide
+MOUTH_OPTIONS = [
+    "\\_____/", #happy
+    "V^V^V^V",  #scary
+    "-------",  #flat
+    "v\\___/v"  #fangs
+]
 
-    Parameters:
-      memory_accesses (list[int]): the memory addresses accessed by the CPU.
-      cache_size (int): number of cache slots available.
+def pick_eye():
+    print("Choose eye shape: ")
+    print("1) triangle")
+    print("2) circle")
+    print("3) square")
+    print("4) closed")
+    
+    eye_choice = int(input("> "))
+    return eye_choice - 1
 
-    Returns:
-      (hits, misses) -> how many times data was found or not found in cache.
-    """
-    cache = [-1] * cache_size  # start with all cache slots empty (-1 = empty)
-    hits, misses = 0, 0        # keep count of both events
+def pick_mouth():
+    print("Choose mouth shape: ")
+    print("1) happy")
+    print("2) scary")
+    print("3) flat")
+    print("4) fangs")
+    
+    mouth_choice = int(input("> "))
+    return mouth_choice - 1
 
-    # Loop through each address in the access sequence
-    for addr in memory_accesses:
+def pick_leaf():
+    print("Do you want a leaf on top? (y/n)")
+    choice = input("> ")
+    if choice == "y":
+        return True
+    else:
+        return False
 
-        # Each address maps to one *specific* cache slot
-        # This is the "direct-mapped" part.
-        index = addr % cache_size
+def print_pumpkin(eye, mouth, leaf):
+    print("Here's your Jack-o-Lantern!")
+    #total width 19
+    
+    #leaf and stem part
+    if leaf:
+        print("        ~^~        ")
+    else:
+        print("                   ")
+    print("         #         ")
+    
+    #top of the head
+    print("     .-''''''-.     ")
+    print("   .'          '.   ")
+    print("  /              \\  ")
+    
 
-        # If the cache slot already has this address, it’s a hit
-        if cache[index] == addr:
-            hits += 1
-            print(f"Access {addr:2d}: HIT  (cache[{index}] = {addr})")
+    # eyes line
+    print(f" |   {EYE_OPTIONS[eye]}     {EYE_OPTIONS[eye]}    | ")
 
-        # Otherwise, it’s a miss — replace that slot with the new address
-        else:
-            misses += 1
-            print(f"Access {addr:2d}: MISS (replacing cache[{index}] with {addr})")
-            cache[index] = addr  # simulate bringing it into cache
+    # middle line
+    print(" |                | ")
 
-    # Return total stats
-    return hits, misses
+    # mouth line
+    print(f" |    {MOUTH_OPTIONS[mouth]}     | ")
+    
+    # bottom of the pumpkin
+    print("  \\              /  ")
+    print("   '.          .'   ")
+    print("     '-.____.-'     ")
+    
+    print("Happy Halloween!!!")
 
+def main():
+    print("---Jack-o-Lantern Generator---")
+    print("What should we carve our pumpkin to look like?")
 
-# -------------------------------
-# STEP 2: Example sequence of memory accesses
-# -------------------------------
-# This represents the "memory addresses" that a CPU might try to read.
-# We use small numbers for clarity.
-accesses = [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5]
+    eye   = pick_eye()
+    mouth = pick_mouth()
+    leaf  = pick_leaf()
 
-# Try different cache sizes to see how performance changes
-cache_size = 4
+    print_pumpkin(eye, mouth, leaf)
 
-print(f"\nSimulating with cache size = {cache_size}...\n")
+    again = input("Make another? (y/n): ")
+    if again == "y":
+        print()
+        main()
 
-# -------------------------------
-# STEP 3: Run the simulation
-# -------------------------------
-hits, misses = simulate_cache(accesses, cache_size)
-
-# -------------------------------
-# STEP 4: Show final results
-# -------------------------------
-print("\nSimulation complete!")
-print(f"Total Hits:   {hits}")
-print(f"Total Misses: {misses}")
-hit_rate = hits / len(accesses)
-print(f"Hit Rate:     {hit_rate:.2%}")
-
-# -------------------------------
-# STEP 5: Experiment ideas for students
-# -------------------------------
-# 1. Change cache_size (try 2, 4, 8) and see how it affects hit rate.
-# 2. Change the access pattern (e.g., repeat same few addresses).
-# 3. Add print statements to show the cache contents at each step.
-# 4. Discuss how a *larger cache* or *better mapping* improves hits.
+if __name__ == "__main__":
+    main()
+    print("Have a spooky halloween! bye!")
